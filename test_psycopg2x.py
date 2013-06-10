@@ -2,11 +2,11 @@ import os
 
 import db
 
-from db_psycopg2 import Psycopg2Driver
+from db_psycopg2 import Psycopg2Driver as Driver
 
 
 def test_from_url():
-    driver = Psycopg2Driver.from_url("postgresql://user:pass@host/db_name")
+    driver = Driver.from_url("postgresql://user:pass@host/db_name")
     assert driver.conn_kwargs == {
         "user": "user",
         "host": "host",
@@ -48,7 +48,7 @@ def test_search_path():
            set(["foo", "bar"])
 
 def test_condense_unilists():
-    assert Psycopg2Driver.condense_unilists({
+    assert Driver.condense_unilists({
         "a": "b",
         "c": ["d"],
         "e": ["f", "g"],
@@ -61,8 +61,8 @@ def test_condense_unilists():
     }
 
 def test_get_kwargs():
-    assert Psycopg2Driver._get_kwargs("postgresql://host/dbname?a=b&c=def") == {
+    assert Driver._get_kwargs("postgresql://host/dbname?a=b&c=def") == {
         "a": "b",
         "c": "def"
     }
-    assert Psycopg2Driver._get_kwargs("postgresql://host/dbname") == {}
+    assert Driver._get_kwargs("postgresql://host/dbname") == {}

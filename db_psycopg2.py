@@ -7,6 +7,8 @@ import psycopg2
 import psycopg2.extras
 import psycopg2.extensions
 
+Binary = psycopg2.Binary
+
 
 class Psycopg2Driver(db.drivers.Driver):
     PARAM_STYLE = "pyformat"
@@ -67,3 +69,5 @@ class Psycopg2Driver(db.drivers.Driver):
 
 
 db.drivers.autoregister_class(Psycopg2Driver)
+
+__all__ = ["db", "Psycopg2Driver", "Binary"]

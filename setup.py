@@ -12,6 +12,6 @@ if __name__ == "__main__":
           author="John Evans",
           author_email="lgastako@gmail.com",
           url="https://github.com/lgastako/db-psycopg2",
-          install_requires=["db"],
+          install_requires=["db", "psycopg2"],
           py_modules=["db_psycopg2"],
           provides=["db_psycopg2"])
