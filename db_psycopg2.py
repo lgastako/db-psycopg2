@@ -69,6 +69,6 @@ class Psycopg2Driver(db.drivers.Driver):
 
 
 db.drivers.autoregister_class(Psycopg2Driver)
-db.drivers.autoregister_class(Psycopg2Driver, schema="postgres")
+db.drivers.autoregister_class(Psycopg2Driver, scheme="postgres")
 
 __all__ = ["db", "Psycopg2Driver", "Binary"]
