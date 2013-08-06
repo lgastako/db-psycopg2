@@ -1,3 +1,9 @@
+2013-08-06 v0.0.7:
+
+    - Fix problems from last three commits.  Maybe I should create unit tests
+      or something.
+
+
 2013-08-06 v0.0.6:
 
     - Display bad URL instead of just bitching.
