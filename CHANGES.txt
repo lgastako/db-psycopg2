@@ -1,3 +1,8 @@
+2013-08-06 v0.0.5:
+
+    - Warn on bad URL scheme instead of returning no driver.
+
+
 2013-08-06 v0.0.4:
 
     - Remove mistakenly committed build artifact.

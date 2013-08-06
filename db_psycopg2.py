@@ -1,4 +1,5 @@
 import urlparse
+import warnings
 import cgi
 
 import db
@@ -41,16 +42,15 @@ class Psycopg2Driver(db.drivers.Driver):
     def from_url(cls, url):
         parsed = urlparse.urlparse(url)
         db_name = parsed.path[1:].split("?", 1)[0]
-        # When the scheme is not http:// it won't parse it automatically, so we
-        # reparse...
         addl_kwargs = cls._get_kwargs(url)
-        if parsed.scheme == "postgresql":
-            return cls(dbname=db_name,
-                       user=parsed.username,
-                       password=parsed.password,
-                       host=parsed.hostname,
-                       port=parsed.port or 5432,
-                       **addl_kwargs)
+        if parsed.scheme in ("postgresql", "postgres"):
+            warnings.warn("Parsed scheme 'postgresql' or 'postgres', strange things may happen.")
+        return cls(dbname=db_name,
+                   user=parsed.username,
+                   password=parsed.password,
+                   host=parsed.hostname,
+                   port=parsed.port or 5432,
+                   **addl_kwargs)
 
     @classmethod
     def _get_kwargs(cls, url):

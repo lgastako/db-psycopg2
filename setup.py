@@ -7,7 +7,7 @@ from setuptools import find_packages
 
 if __name__ == "__main__":
     setup(name="db-psycopg2",
-          version="0.0.4",
+          version="0.0.5",
           description="psycopg2 driver for db",
           author="John Evans",
           author_email="lgastako@gmail.com",
