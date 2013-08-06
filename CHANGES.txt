@@ -1,3 +1,8 @@
+2013-08-06 v0.0.6:
+
+    - Display bad URL instead of just bitching.
+
+
 2013-08-06 v0.0.5:
 
     - Warn on bad URL scheme instead of returning no driver.

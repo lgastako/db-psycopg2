@@ -44,7 +44,7 @@ class Psycopg2Driver(db.drivers.Driver):
         db_name = parsed.path[1:].split("?", 1)[0]
         addl_kwargs = cls._get_kwargs(url)
         if parsed.scheme in ("postgresql", "postgres"):
-            warnings.warn("Parsed scheme 'postgresql' or 'postgres', strange things may happen.")
+            warnings.warn("Parsed scheme 'postgresql' or 'postgres', strange things may happen: %s" % url)
         return cls(dbname=db_name,
                    user=parsed.username,
                    password=parsed.password,
